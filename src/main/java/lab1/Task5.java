@@ -5,7 +5,7 @@ package lab1;
 
 public class Task5 {
     public static void main(String[] args) {
-        String input = "1325656754";
+        String input = "1754";
         char[] str = input.toCharArray();
 
         Figure figure=new Figure();
