@@ -7,14 +7,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Automata {
-
+    private String pathname = "C:\\Users\\sham\\IdeaProjects\\JavaLabsMvn\\src\\main\\resources\\drinks";
     private int cash;
     private States states = States.OFF;
-    private final File file = new File("\\JavaLabsMvn\\src\\main\\resources\\drinks");
+    private final File file = new File(pathname);
     private final List<String> menu = new ArrayList<>();
     private final List<Integer> prices = new ArrayList<>();
     private final StringBuilder fullMenu = new StringBuilder();
     private int myChoice;
+    private int change = 0; //сдача
 
     {
         Scanner scanner = null;
@@ -45,6 +46,7 @@ public class Automata {
 //    cook() - имитация процесса приготовления напитка;
 //    finish() - завершение обслуживания пользователя.
 
+
     public void on() {
         if (states == States.OFF) {
             states = States.WAIT;
@@ -66,6 +68,14 @@ public class Automata {
 
     public StringBuilder getMenu() {
         return fullMenu;
+    }
+
+    public int getCash() {
+        return cash;
+    }
+
+    public int getChange() {
+        return change;
     }
 
     public States getState() {
@@ -113,6 +123,7 @@ public class Automata {
     public void finish() {
         if (states == States.COOK) {
             states = States.WAIT;
+            change = cash;
             cash = 0;
         }
     }
