@@ -10,18 +10,27 @@ public class Task3 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Формат ввода: 1,4,5-19,24-27,28,45");
         System.out.print("NUMBERS: ");
-        String[] s2 = scanner.nextLine().split(",");
-        for(String s: s2){
-        if(s.indexOf('-') == (-1)){
-            System.out.print(s+" ");
-        } else {
-            String num1 = s.substring(0,s.indexOf('-'));
-            String num2 = s.substring(s.indexOf('-')+1);
-            for (int i = Integer.parseInt(num1); i<=Integer.parseInt(num2);i++){
-                System.out.print(i+ " ");
-            }
-        }
-        }
+        String s = scanner.nextLine();
+        deploy(s);
+
     }
 
+    public static String deploy(String s) {
+        String result = "";
+        String[] sArr = s.split(",");
+        for (String num : sArr) {
+            if (num.indexOf('-') == (-1)) {
+                System.out.print(num + " ");
+                result+=(num+",");
+            } else {
+                String num1 = num.substring(0, num.indexOf('-'));
+                String num2 = num.substring(num.indexOf('-') + 1);
+                for (int i = Integer.parseInt(num1); i <= Integer.parseInt(num2); i++) {
+                    result += (i + ",");
+                    System.out.print(i + ",");
+                }
+            }
+        }
+        return result.substring(0,result.length()-1);
+    }
 }
