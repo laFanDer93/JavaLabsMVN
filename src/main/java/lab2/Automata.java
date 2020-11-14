@@ -83,7 +83,6 @@ public class Automata {
     public void check() {
         if (states == States.CHECK) {
             if (cash < prices.get(myChoice)) {
-                System.out.println("Недостаточно средств!");
                 cancel();
             } else if (cash >= prices.get(myChoice)) {
                 cook();
@@ -114,7 +113,6 @@ public class Automata {
     public void finish() {
         if (states == States.COOK) {
             states = States.WAIT;
-            System.out.println("Ваша сдача: " + cash);
             cash = 0;
         }
     }

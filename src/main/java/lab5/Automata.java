@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Automata {
-
+    private String pathname = "C:\\Users\\sham\\IdeaProjects\\JavaLabsMvn\\src\\main\\resources\\drinks";
     private int cash;
     private States states = States.OFF;
-    private final File file = new File("C:\\Users\\sham\\IdeaProjects\\JavaLabsMvn\\src\\main\\resources\\drinks");
+    private final File file = new File(pathname);
     private final List<String> menu = new ArrayList<>();
     private final List<Integer> prices = new ArrayList<>();
     private final StringBuilder fullMenu = new StringBuilder();
